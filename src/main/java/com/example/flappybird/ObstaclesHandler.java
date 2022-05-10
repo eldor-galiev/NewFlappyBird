@@ -22,14 +22,14 @@ public class ObstaclesHandler {
 
     public ArrayList<Rectangle> createObstacles(){
 
-        int width = 25;
+        int width = 50;
         double xPos = planeWidth;
-        double space = 200;
+        double space = 180;
         double recTopHeight = random.nextInt((int)(planeHeight - space - 100)) + 50;
         double recBottomHeight = planeHeight - space - recTopHeight;
 
         //                                     x      y   width   height
-        Rectangle rectangleTop = new Rectangle(xPos,0,width,recTopHeight);
+        Rectangle rectangleTop = new Rectangle(xPos,0,width, recTopHeight);
         Rectangle rectangleBottom = new Rectangle(xPos, recTopHeight + space, width, recBottomHeight);
 
         plane.getChildren().addAll(rectangleTop,rectangleBottom);

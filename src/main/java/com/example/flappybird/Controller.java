@@ -3,6 +3,7 @@ package com.example.flappybird;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,14 +15,15 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
+    @FXML
+    public ImageView start_button;
     AnimationTimer gameLoop;
 
     @FXML
     private AnchorPane plane;
 
     @FXML
-    private Rectangle bird;
+    private ImageView bird;
 
     @FXML
     private Text score;
@@ -38,7 +40,6 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         int jumpHeight = 50;
         birdComponent = new Bird(bird, jumpHeight);
         double planeHeight = 600;
@@ -51,9 +52,7 @@ public class Controller implements Initializable {
                 update();
             }
         };
-
         load();
-
         gameLoop.start();
     }
 
@@ -70,7 +69,7 @@ public class Controller implements Initializable {
     private void update() {
         gameTime++;
         accelerationTime++;
-        double yDelta = 0.02;
+        double yDelta = 0.03;
         birdComponent.moveBirdY(yDelta * accelerationTime);
 
         if(pointChecker(obstacles, bird)){
@@ -79,7 +78,7 @@ public class Controller implements Initializable {
         }
 
         obstaclesHandler.moveObstacles(obstacles);
-        if(gameTime % 300 == 0){
+        if(gameTime % 400 == 0){
             obstacles.addAll(obstaclesHandler.createObstacles());
         }
 
@@ -105,7 +104,7 @@ public class Controller implements Initializable {
 
 
 
-    private boolean pointChecker(ArrayList<Rectangle> obstacles, Rectangle bird){
+    private boolean pointChecker(ArrayList<Rectangle> obstacles, ImageView bird){
         for (Rectangle obstacle: obstacles) {
             int birdPositionX = (int) (bird.getLayoutX() + bird.getX());
             if(((int)(obstacle.getLayoutX() + obstacle.getX()) == birdPositionX)){

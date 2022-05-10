@@ -1,5 +1,6 @@
 package com.example.flappybird;
 
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
@@ -7,11 +8,11 @@ import java.util.ArrayList;
 
 public class Bird {
 
-    private Rectangle bird;
+    private ImageView bird;
     private int jumpHeight;
     CollisionHandler collisionHandler = new CollisionHandler();
 
-    public Bird(Rectangle bird, int jumpHeight) {
+    public Bird(ImageView bird, int jumpHeight) {
         this.bird = bird;
         this.jumpHeight = jumpHeight;
     }
