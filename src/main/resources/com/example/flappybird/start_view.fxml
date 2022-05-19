@@ -4,18 +4,26 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flappybird.Controller">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flappybird.restartview_Controller">
    <children>
-      <ImageView fitHeight="96.0" fitWidth="275.0" layoutX="63.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="background" fitHeight="600.0" fitWidth="400.0">
          <image>
-            <Image url="@logo.png" />
+            <Image url="@background.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="start_button" fitHeight="73.0" fitWidth="162.0" layoutX="135.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@play.png" />
-         </image>
-      </ImageView>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0">
+         <children>
+            <ImageView fx:id="start_button" fitHeight="73.0" fitWidth="162.0" layoutX="137.0" layoutY="221.0" onMouseClicked="#restart" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@play.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="96.0" fitWidth="275.0" layoutX="65.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

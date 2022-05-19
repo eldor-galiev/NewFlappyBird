@@ -6,17 +6,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="plane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pressed" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flappybird.Controller">
+<AnchorPane fx:id="plane" onMouseClicked="#pressed"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flappybird.Controller">
    <children>
-      <Text fx:id="score" layoutX="118.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="163.2734375">
-         <font>
-            <Font size="64.0" />
-         </font>
-      </Text>
-      <ImageView fx:id="bird" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="background"  fitHeight="600.0" fitWidth="400.0">
          <image>
-            <Image url="@../../../angry-bird.jpg" />
+            <Image url="@background.png" />
          </image>
       </ImageView>
+      <AnchorPane fx:id="pane2" prefHeight="600.0" prefWidth="400.0">
+         <children>
+            <Text fx:id="score"  layoutX="118.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="163.2734375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="bird"  fitHeight="100.0" fitWidth="100.0" layoutX="150.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../bird.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

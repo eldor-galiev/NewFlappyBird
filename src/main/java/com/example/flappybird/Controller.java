@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -57,11 +58,10 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void pressed(KeyEvent event) {
-        if(event.getCode() == KeyCode.SPACE){
-            birdComponent.fly();
-            accelerationTime = 0;
-        }
+    void pressed(MouseEvent event) {
+        birdComponent.fly();
+        accelerationTime = 0;
+
     }
 
 
