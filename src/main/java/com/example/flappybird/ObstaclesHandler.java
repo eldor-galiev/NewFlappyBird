@@ -1,10 +1,13 @@
 package com.example.flappybird;
 
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 public class ObstaclesHandler {
@@ -31,6 +34,12 @@ public class ObstaclesHandler {
         //                                     x      y   width   height
         Rectangle rectangleTop = new Rectangle(xPos,0,width, recTopHeight);
         Rectangle rectangleBottom = new Rectangle(xPos, recTopHeight + space, width, recBottomHeight);
+
+        String imageBGup = Objects.requireNonNull(getClass().getResource("UP.png")).toExternalForm();
+        rectangleBottom.setFill(new ImagePattern(new Image(imageBGup)));
+
+        String imageBGdown = Objects.requireNonNull(getClass().getResource("DOWN.png")).toExternalForm();
+        rectangleTop.setFill(new ImagePattern(new Image(imageBGdown)));
 
         plane.getChildren().addAll(rectangleTop,rectangleBottom);
         return new ArrayList<>(Arrays.asList(rectangleTop,rectangleBottom));

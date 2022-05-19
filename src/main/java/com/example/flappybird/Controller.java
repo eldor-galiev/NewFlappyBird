@@ -2,7 +2,13 @@ package com.example.flappybird;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -10,7 +16,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -93,6 +101,9 @@ public class Controller implements Initializable {
     }
 
     private void resetGame(){
+        /*Alert result = new Alert(Alert.AlertType.INFORMATION);
+        result.setContentText("Your score: " + scoreCounter);
+        result.showAndWait();*/
         bird.setY(0);
         plane.getChildren().removeAll(obstacles);
         obstacles.clear();
@@ -100,7 +111,22 @@ public class Controller implements Initializable {
         accelerationTime = 0;
         scoreCounter = 0;
         score.setText(String.valueOf(scoreCounter));
+        FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("View_restart.fxml"));
+        Parent parent = null;
+        try {
+            parent = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(parent);
+        Stage app_stage = (Stage) bird.getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.show();
+        //Restart_Controller restart_controller = new Restart_Controller(scoreCounter);
+
+
     }
+
 
 
 
@@ -113,4 +139,5 @@ public class Controller implements Initializable {
         }
         return false;
     }
+
 }

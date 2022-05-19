@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flappybird.Startview_Controller">
+    <children>
+        <ImageView fx:id="background" fitHeight="600.0" fitWidth="400.0">
+            <image>
+                <Image url="@pictures/background.png" />
+            </image>
+        </ImageView>
+        <AnchorPane prefHeight="600.0" prefWidth="400.0">
+            <children>
+                <ImageView fx:id="start_button" fitHeight="73.0" fitWidth="162.0" layoutX="135.0" layoutY="227.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@pictures/play.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="96.0" fitWidth="275.0" layoutX="63.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@pictures/gameover.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
